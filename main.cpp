@@ -19,8 +19,8 @@ public:
  //   [[maybe_unused]] [[nodiscard]] std::string getTip() const {
  //     return tip; }
 
-    [[maybe_unused]] [[nodiscard]] double getPretPeNoapte() const {
-        return pretPeNoapte; }
+// [[maybe_unused]] [[nodiscard]] double getPretPeNoapte() const {
+//        return pretPeNoapte; }
 
     [[nodiscard]] bool getEsteOcupata() const  {
         return esteOcupata  ; }
