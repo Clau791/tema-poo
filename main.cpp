@@ -281,18 +281,16 @@ int main() {
                 // Ofera utilizatorului opțiunea de a alege o altă camera
                 std::cout << "Va rugam sa selectati o alta camera.\n";
             } else {
-                // Corectăm apelul la setter pentru a marca camera ca fiind ocupată
 
-                std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Setează camera ca fiind ocupată
                 camere[indexCamera].SetterOcupata();
-                std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Setează camera ca fiind ocupată
+               // std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Verifica daca camera a fost ocupata
 
-                std::cout << "Camera a fost rezervata cu succes.\n";
-                break; // Ieșire din bucla când rezervarea este efectuată cu succes
+                std::cout << "Camera "<<camere[indexCamera].getNumar()<<" a fost rezervata cu succes.\n";
+                break; // Ieșire din bucla când rezervarea este efectuata cu succes
             }
         }
 
-        std::cout << "Doriti sa continuati? (0 = nu, orice alt număr = da): ";
+        std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
         int continua1;
         std::cin >> continua1;
         if (continua1 == 0) {
