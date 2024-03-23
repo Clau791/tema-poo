@@ -180,6 +180,15 @@ int main() {
     hotel1.adaugaCamera(camera4);
     hotel1.adaugaCamera(camera5);
 
+    Hotel hotel2("Sea View");
+    Camera camera22(202, "Single", 180.0);
+    Camera camera23(203, "Dubla", 250.0, true);
+    Camera camera24(204, "Tripla", 450.0, true);
+    Camera camera25(205, "Tripla", 350.0);
+    hotel2.adaugaCamera(camera22);
+    hotel2.adaugaCamera(camera23);
+    hotel2.adaugaCamera(camera24);
+    hotel2.adaugaCamera(camera25);
 
     Hotel hotel3("Grand Hotel");
     Camera camera30(301, "Dubla", 320.0);
@@ -187,25 +196,14 @@ int main() {
     Camera camera32(303, "Dubla", 350.0, true);
     Camera camera33(304, "Dubla", 370.0, true);
     Camera camera34(305, "Dubla", 330.0, true);
+    Camera camera35(305, "Tripla", 500.0);
+
     hotel3.adaugaCamera(camera30);
     hotel3.adaugaCamera(camera31);
     hotel3.adaugaCamera(camera32);
     hotel3.adaugaCamera(camera33);
     hotel3.adaugaCamera(camera34);
-
-
-
-    Hotel hotel2("Sea View");
-    Camera camera20(201, "Tripla", 500.0);
-    Camera camera22(202, "Single", 180.0);
-    Camera camera23(203, "Dubla", 250.0, true);
-    Camera camera24(204, "Tripla", 450.0, true);
-    Camera camera25(205, "Tripla", 350.0);
-    hotel2.adaugaCamera(camera20);
-    hotel2.adaugaCamera(camera22);
-    hotel2.adaugaCamera(camera23);
-    hotel2.adaugaCamera(camera24);
-    hotel2.adaugaCamera(camera25);
+    hotel3.adaugaCamera(camera35);
 
 
     // Crearea unui oraș si adaugar ea hotelurilor în oraș
@@ -265,10 +263,10 @@ int main() {
 
 
         auto &hotelAles = const_cast<Hotel &>(hoteluri[optiuneHotel - 1]);
-        //obține o referință la hotelul ales din vectorul de hoteluri, pentru a face afisari/modificaro
+        //obține o referința la hotelul ales din vectorul de hoteluri, pentru a face afisari/modificari
 
         auto &camere = const_cast<std::vector<Camera> &>(hotelAles.getCamere());
-        //obține o referință la hotelul ales din vectorul de camere, pentru a face afisari/modificaro
+        //obține o referința la hotelul ales din vectorul de camere, pentru a face afisari/modificari
 
         std::cout << "Selectati o camera din " << hotelAles.getNume() << ":\n";
         for (size_t k = 0; k < camere.size(); ++k) {
