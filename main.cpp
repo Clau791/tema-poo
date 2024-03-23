@@ -13,14 +13,14 @@ public:
 
     // Getter-e pentru numarul, tipul ,disponibilitatea si pretul camerei.
 
-    [[maybe_unused]] [[nodiscard]] int getNumar() const {
-        return numar; }
+   [[maybe_unused]] [[nodiscard]] int getNumar() const {
+       return numar; }
 
    // [[maybe_unused]] [[nodiscard]] std::string getTip() const {
    //     return tip; }
 
-    [[maybe_unused]] [[nodiscard]] double getPretPeNoapte() const {
-        return pretPeNoapte; }
+   // [[maybe_unused]] [[nodiscard]] double getPretPeNoapte() const {
+   //     return pretPeNoapte; }
 
     [[nodiscard]] bool getEsteOcupata() const  {
         return esteOcupata  ; }
