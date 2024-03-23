@@ -63,6 +63,8 @@ public:
 class Hotel {
 private:
     std::string nume;
+
+    //Initializam vectorul pentru a stoca și gestiona o colecție de camere
     std::vector<Camera> camere;
 
 public:
@@ -84,6 +86,7 @@ public:
         camere.push_back(camera);
     }
 
+        //supraincarcarea operatorului << pentru clasa Hotel
     friend std::ostream& operator<<(std::ostream& out, const Hotel& hotel) {
         out << "Hotel: " << hotel.nume << "\n";
         for (const auto& camera : hotel.camere) {
@@ -92,6 +95,7 @@ public:
         return out;
     }
 
+    //supraincarcarea operatorului >> pentru clasa Hotel
     friend std::istream& operator>>(std::istream& in, Hotel& hotel) {
         std::cout << "Nume Hotel: ";
         in >> hotel.nume;
@@ -106,12 +110,15 @@ public:
         }
         return in;
     }
+    //destructor
     ~Hotel() = default;
 };
 
 class Oras {
 private:
-    std::string nume;
+    std::string nume; 
+
+    //Initializam vectorul pentru a stoca și gestiona hotelurile
     std::vector<Hotel> hoteluri;
 
 public:
@@ -174,7 +181,19 @@ int main() {
     hotel1.adaugaCamera(camera4);
     hotel1.adaugaCamera(camera5);
 
+    Hotel hotel2("Sea View");
+    Camera camera20(201, "Tripla", 500.0);
+    Camera camera22(202, "Single", 180.0);
+    Camera camera23(203, "Dubla", 250.0, true);
+    Camera camera24(204, "Tripla", 450.0, true);
+    Camera camera25(205, "Tripla", 350.0);
+    hotel2.adaugaCamera(camera20);
+    hotel2.adaugaCamera(camera22);
+    hotel2.adaugaCamera(camera23);
+    hotel2.adaugaCamera(camera24);
+    hotel2.adaugaCamera(camera25);
 
+    
     Hotel hotel3("Grand Hotel");
     Camera camera30(301, "Dubla", 320.0);
     Camera camera31(302, "Single", 150.0);
@@ -188,18 +207,6 @@ int main() {
     hotel3.adaugaCamera(camera34);
 
 
-
-    Hotel hotel2("Sea View");
-    Camera camera20(201, "Tripla", 500.0);
-    Camera camera22(202, "Single", 180.0);
-    Camera camera23(203, "Dubla", 250.0, true);
-    Camera camera24(204, "Tripla", 450.0, true);
-    Camera camera25(205, "Tripla", 350.0);
-    hotel2.adaugaCamera(camera20);
-    hotel2.adaugaCamera(camera22);
-    hotel2.adaugaCamera(camera23);
-    hotel2.adaugaCamera(camera24);
-    hotel2.adaugaCamera(camera25);
 
 
     // Crearea unui oraș si adaugar ea hotelurilor în oraș
@@ -218,6 +225,8 @@ int main() {
 
 
         std::cout << "Selectati un oras:\n";
+        //pentru a afisa toate orasele din vector
+
         for (size_t i = 0; i < orase.size(); i++) {
             std::cout << i + 1 << ". " << orase[i].getNume() << std::endl;
         }
@@ -229,7 +238,8 @@ int main() {
             std::cout << "Optiune invalida. Incercati din nou.\n";
             continue;
         }
-
+        //am folosit static_cast<int> pentru a ne asigura ca tipul de
+        // date returnat este int(nu unsigned cum s-ar fi intamplat fara el)
 
         Oras &orasAles = orase[optiuneOras - 1];
         const std::vector<Hotel> &hoteluri = orasAles.getHoteluri();
@@ -256,8 +266,9 @@ int main() {
 
 
         auto &hotelAles = const_cast<Hotel &>(hoteluri[optiuneHotel - 1]);
-
-       auto &camere = const_cast<std::vector<Camera> &>(hotelAles.getCamere()); // Obținem acces la modificare
+        //obține o referința la hotelul ales din vectorul de hoteluri, pentru a face afisari/modificari
+        auto &camere = const_cast<std::vector<Camera> &>(hotelAles.getCamere()); 
+        //obține o referința la hotelul ales din vectorul de camere, pentru a face afisari/modificari
 
         std::cout << "Selectati o camera din " << hotelAles.getNume() << ":\n";
         for (size_t k = 0; k < camere.size(); ++k) {
