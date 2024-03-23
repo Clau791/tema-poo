@@ -63,6 +63,7 @@ public:
 class Hotel {
 private:
     std::string nume;
+    //Initializam vectorul pentru a stoca și gestiona o colecție de camere
     std::vector<Camera> camere;
 
 public:
@@ -84,6 +85,7 @@ public:
         camere.push_back(camera);
     }
 
+    //supraincarcarea operatorului << pentru clasa Hotel
     friend std::ostream& operator<<(std::ostream& out, const Hotel& hotel) {
         out << "Hotel: " << hotel.nume << "\n";
         for (const auto& camera : hotel.camere) {
@@ -91,7 +93,7 @@ public:
         }
         return out;
     }
-
+    //supraincarcarea operatorului >> pentru clasa Hotel
     friend std::istream& operator>>(std::istream& in, Hotel& hotel) {
         std::cout << "Nume Hotel: ";
         in >> hotel.nume;
@@ -106,12 +108,16 @@ public:
         }
         return in;
     }
+
+    //destructor
     ~Hotel() = default;
 };
 
 class Oras {
 private:
     std::string nume;
+
+    //Initializam vectorul pentru a stoca și gestiona hotelurile
     std::vector<Hotel> hoteluri;
 
 public:
@@ -218,6 +224,7 @@ int main() {
 
 
         std::cout << "Selectati un oras:\n";
+        //pentru a afisa toate orasele din vector
         for (size_t i = 0; i < orase.size(); i++) {
             std::cout << i + 1 << ". " << orase[i].getNume() << std::endl;
         }
@@ -229,7 +236,8 @@ int main() {
             std::cout << "Optiune invalida. Incercati din nou.\n";
             continue;
         }
-
+        //am folosit static_cast<int> pentru a ne asigura ca tipul de
+        // date returnat este int(nu unsigned cum s-ar fi intamplat fara el)
 
         Oras &orasAles = orase[optiuneOras - 1];
         const std::vector<Hotel> &hoteluri = orasAles.getHoteluri();
@@ -255,9 +263,12 @@ int main() {
         }
 
 
-        auto &hotelAles = const_cast<Hotel &>(hoteluri[optiuneHotel - 1]);
 
-       auto &camere = const_cast<std::vector<Camera> &>(hotelAles.getCamere()); // Obținem acces la modificare
+        auto &hotelAles = const_cast<Hotel &>(hoteluri[optiuneHotel - 1]);
+        //obține o referință la hotelul ales din vectorul de hoteluri, pentru a face afisari/modificaro
+
+        auto &camere = const_cast<std::vector<Camera> &>(hotelAles.getCamere());
+        //obține o referință la hotelul ales din vectorul de camere, pentru a face afisari/modificaro
 
         std::cout << "Selectati o camera din " << hotelAles.getNume() << ":\n";
         for (size_t k = 0; k < camere.size(); ++k) {
