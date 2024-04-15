@@ -41,6 +41,7 @@ public:
         return out;
     }
 
+
     //Supraincarcarea parametrului >>
 
     friend std::istream& operator>>(std::istream& in, Camera& camera) {
@@ -52,9 +53,13 @@ public:
     void SetterOcupata()  {
         this ->esteOcupata = !esteOcupata ;
     }
-
+    //tema 2
+    virtual void AfiseazaDetalii() const {
+        std::cout << "Camera " << numar << ": " << tip << ", " << pretPeNoapte << " RON, "
+                  << (esteOcupata ? "Ocupata" : "Libera") << std::endl;
+    }
     //destructor
-    ~Camera() = default;
+    virtual ~Camera() = default;
 
 };
 

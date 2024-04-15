@@ -9,13 +9,17 @@
 
 
 int main() {
-
+   //tema 2
     class CameraVIP : public Camera {
 
     public:
         CameraVIP(int nr, double pret, bool ocupata)
                 : Camera(nr, "VIP", pret, ocupata)  {
 
+        }
+        void AfiseazaDetalii()  {
+            Camera::AfiseazaDetalii();
+            std::cout << "   " << std::endl;
         }
 
 
@@ -72,7 +76,7 @@ int main() {
 
 
     bool continua = true;
-
+    cameraVip1.AfiseazaDetalii();
     std::vector<Oras> orase = {oras1, oras2}; //  vectorul cu orașele create
 
     while (continua) {
