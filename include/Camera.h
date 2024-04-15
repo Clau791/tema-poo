@@ -54,7 +54,7 @@ public:
         this ->esteOcupata = !esteOcupata ;
     }
     //tema 2
-    virtual void AfiseazaDetalii() const {
+    virtual void AfiseazaDetalii() {
         std::cout << "Camera " << numar << ": " << tip << ", " << pretPeNoapte << " RON, "
                   << (esteOcupata ? "Ocupata" : "Libera") << std::endl;
     }
