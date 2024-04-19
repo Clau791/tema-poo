@@ -8,16 +8,20 @@
 
 
 
+
 int main() {
+
    //tema 2
+
     class CameraVIP : public Camera {
 
     public:
         CameraVIP(int nr, double pret, bool ocupata)
-                : Camera(nr, "VIP", pret, ocupata)  {
+                : Camera(nr, "VIP", pret, ocupata)   {
 
         }
-        void AfiseazaDetalii()  {
+        //am apelat constructorul din clasa de baza
+        void AfiseazaDetalii() override  {
             Camera::AfiseazaDetalii();
             std::cout << "   " << std::endl;
         }
@@ -28,7 +32,7 @@ int main() {
 
     // Crearea a 3 hoteluri
     Hotel hotel1("Grand Plaza");
-    CameraVIP cameraVip1(1, 500.0, true);
+
     Camera camera1(101, "Dubla", 300.0);
     Camera camera2(102, "Single", 150.0);
     Camera camera3(103, "Dubla", 350.0, true);
@@ -39,7 +43,6 @@ int main() {
     hotel1.adaugaCamera(camera3);
     hotel1.adaugaCamera(camera4);
     hotel1.adaugaCamera(camera5);
-    hotel1.adaugaCamera(cameraVip1);
 
 
     Hotel hotel2("Sea View");
@@ -75,8 +78,14 @@ int main() {
     oras2.adaugaHotel(hotel3);
 
 
-    bool continua = true;
+    //tema 2
+    CameraVIP cameraVip1(1, 500.0, true);
+    hotel1.adaugaCamera(cameraVip1);
     cameraVip1.AfiseazaDetalii();
+
+    bool continua = true;
+    Camera::camereOcupate = 0; // pentru a nu se incrementa si camerele deja initializate cu false
+
     std::vector<Oras> orase = {oras1, oras2}; //  vectorul cu orașele create
 
     while (continua) {
@@ -156,10 +165,15 @@ int main() {
                // std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Verifica daca camera a fost ocupata
 
                 std::cout << "Camera "<<camere[indexCamera].getNumar()<<" a fost rezervata cu succes.\n";
+                SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
                 break; // Ieșire din bucla când rezervarea este efectuata cu succes
             }
         }
 
+
+        Camera::camereOcupate ++; //incrementam camerele ocupate
+        Camera::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
+        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata - C << " RON" << std::endl;
         std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
         int continua1;
         std::cin >> continua1;
