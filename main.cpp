@@ -173,7 +173,7 @@ int main() {
 
         Camera::camereOcupate ++; //incrementam camerele ocupate
         Camera::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
-        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata - C << " RON" << std::endl;
+        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata  << " RON" << std::endl;
         std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
         int continua1;
         std::cin >> continua1;
