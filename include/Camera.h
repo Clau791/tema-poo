@@ -17,7 +17,7 @@ public:
         return esteOcupata  ; }
 
     //tema 2
-    static double reducereGlobala; // Reducere globala aplicabila tuturor camerelor
+    static int reducereGlobala; // Reducere globala aplicabila tuturor camerelor
     static int camereOcupate;
 
 
@@ -77,6 +77,6 @@ public:
 
 };
 
-double Camera::reducereGlobala = 0;
+int Camera::reducereGlobala = 0;
 int Camera::camereOcupate = 0;
 int SumaDePlata = 0;

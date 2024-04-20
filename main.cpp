@@ -4,7 +4,6 @@
 // separarea codului din clase în `.h`
 #include <Hotel.h>
 #include <Oras.h>
-#include <Camera.h>
 
 
 int main() {

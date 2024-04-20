@@ -3,7 +3,10 @@
 //
 #ifndef OOP_HOTEL_H
 #define OOP_HOTEL_H
+
+
 #include <iostream>
+#include <Camera.h>
 #include <vector>
 #include <string>
 #include <utility>
