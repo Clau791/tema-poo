@@ -27,7 +27,6 @@ int main() {
 
      };
 
-
     // Crearea a 3 hoteluri
     Hotel hotel1("Grand Plaza");
 
