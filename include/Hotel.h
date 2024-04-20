@@ -3,13 +3,15 @@
 //
 #ifndef OOP_HOTEL_H
 #define OOP_HOTEL_H
-
-// clasa nu a fost modificata de la tema 1
 #include <iostream>
 #include <vector>
 #include <string>
 #include "Camera.h"
 #include "CameraVIP.h"
+
+
+// clasa nu a fost modificata de la tema 1
+
 
 class Hotel {
 private:

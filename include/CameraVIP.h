@@ -1,8 +1,6 @@
 #ifndef OOP_CAMERAVIP_H
 #define OOP_CAMERAVIP_H
 
-
-
 class CameraVIP : public Camera {
 
 public:

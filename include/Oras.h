@@ -6,6 +6,8 @@
 #include <string>
 #include "Hotel.h"
 
+
+// clasa nu a fost modificata de la tema 1
 class Oras {
 private:
     std::string nume;

@@ -5,11 +5,15 @@ int Camera::camereOcupate = 0;
 int SumaDePlata = 0;
 
 Camera::Camera(int numar, std::string tip, int pretPeNoapte, bool esteOcupata)
-        : numar(numar), tip(std::move(tip)), pretPeNoapte(pretPeNoapte), esteOcupata(esteOcupata) {}
+        : numar(numar), tip(std::move(tip)), pretPeNoapte(pretPeNoapte), esteOcupata(esteOcupata) {
+
+}
 
 
 Camera::Camera(const Camera& sursa)
-        : numar(sursa.numar), tip(sursa.tip), pretPeNoapte(sursa.pretPeNoapte), esteOcupata(sursa.esteOcupata) {}
+        : numar(sursa.numar), tip(sursa.tip), pretPeNoapte(sursa.pretPeNoapte), esteOcupata(sursa.esteOcupata) {
+
+}
 
 
 void Camera::actualizeazaReducere() {
@@ -25,6 +29,7 @@ void Camera::SetterOcupata() {
     esteOcupata = !esteOcupata;
 }
 
+// functie declarata virtual in .h pentru afisa detaliile claselor derivate
 void Camera::AfiseazaDetalii() {
     std::cout << "Camera " << numar << ": " << tip << ", " << pretPeNoapte << " RON, "
               << (esteOcupata ? "Ocupata" : "Libera") << std::endl;

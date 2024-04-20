@@ -10,7 +10,7 @@ const std::vector<Hotel>& Oras::getHoteluri() const {
     return hoteluri;
 }
 
-// Adaugam un hotel la lista de hoteluri
+
 void Oras::adaugaHotel(const Hotel& hotel) {
     hoteluri.push_back(hotel);
 }

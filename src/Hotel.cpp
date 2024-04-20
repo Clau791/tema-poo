@@ -1,6 +1,7 @@
 //
 // Created by klau2 on 20.04.2024.
 //
+
 #include "Hotel.h"
 
 Hotel::Hotel(std::string nume) : nume(std::move(nume)) {}

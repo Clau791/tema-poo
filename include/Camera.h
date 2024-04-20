@@ -17,8 +17,12 @@ public:
 
     [[nodiscard]] bool getEsteOcupata() const  {
         return esteOcupata  ; }
+
     void SetterOcupata();
+
+
     // tema 2 , adaugam o reducere in cazul rezervarii mai multor camere
+    // variabile de tip static
     static int reducere;
     static int camereOcupate;
 
