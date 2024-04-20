@@ -9,9 +9,14 @@ private:
     bool esteOcupata;
 
 public:
-    [[nodiscard]] int getPret() const;
-    [[nodiscard]] int getNumar() const;
-    [[nodiscard]] bool getEsteOcupata() const;
+[[maybe_unused]] [[nodiscard]] int getPret() const {
+        return pretPeNoapte; }
+
+    [[maybe_unused]] [[nodiscard]] int getNumar() const {
+        return numar; }
+
+    [[nodiscard]] bool getEsteOcupata() const  {
+        return esteOcupata  ; }
 
     static int reducereGlobala;
     static int camereOcupate;
