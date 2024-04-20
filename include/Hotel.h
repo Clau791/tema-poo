@@ -4,10 +4,12 @@
 #ifndef OOP_HOTEL_H
 #define OOP_HOTEL_H
 
+// clasa nu a fost modificata de la tema 1
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Camera.h" // Asigurați-vă că includeți corect header-ul
+#include "Camera.h"
+#include "CameraVIP.h"
 
 class Hotel {
 private:

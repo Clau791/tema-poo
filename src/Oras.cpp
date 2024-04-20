@@ -1,6 +1,3 @@
-//
-// Created by klau2 on 20.04.2024.
-//
 #include "Oras.h"
 
 Oras::Oras(std::string nume) : nume(std::move(nume)) {}
@@ -13,6 +10,7 @@ const std::vector<Hotel>& Oras::getHoteluri() const {
     return hoteluri;
 }
 
+// Adaugam un hotel la lista de hoteluri
 void Oras::adaugaHotel(const Hotel& hotel) {
     hoteluri.push_back(hotel);
 }
@@ -32,11 +30,8 @@ std::istream& operator>>(std::istream& in, Oras& oras) {
     std::cout << "Nr hoteluri: ";
     in >> nrHoteluri;
     Hotel temp;
-    for (int i = 0; i < nrHoteluri; i++) {
-        std::cout << "Hotel " << i + 1 << ": ";
-        in >> temp;
-        oras.hoteluri.push_back(temp);
-    }
+
+
     return in;
 }
 

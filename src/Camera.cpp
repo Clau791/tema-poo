@@ -1,22 +1,24 @@
 #include "Camera.h"
 
-int Camera::reducereGlobala = 0;
+int Camera::reducere = 0;
 int Camera::camereOcupate = 0;
 int SumaDePlata = 0;
 
 Camera::Camera(int numar, std::string tip, int pretPeNoapte, bool esteOcupata)
         : numar(numar), tip(std::move(tip)), pretPeNoapte(pretPeNoapte), esteOcupata(esteOcupata) {}
 
+
 Camera::Camera(const Camera& sursa)
         : numar(sursa.numar), tip(sursa.tip), pretPeNoapte(sursa.pretPeNoapte), esteOcupata(sursa.esteOcupata) {}
 
+
 void Camera::actualizeazaReducere() {
     if (camereOcupate >= 2 && camereOcupate < 3) {
-        reducereGlobala = 50;
+        reducere = 50;
     } else if (camereOcupate >= 3) {
-        reducereGlobala = 100;
+        reducere = 100;
     }
-    std::cout << "Reducerea actualizata este: " << reducereGlobala << " RON" << std::endl;
+    std::cout << "Reducerea actualizata este: " << reducere << " RON" << std::endl;
 }
 
 void Camera::SetterOcupata() {
@@ -41,3 +43,4 @@ std::istream& operator>>(std::istream& in, Camera& camera) {
 }
 
 Camera::~Camera() {}
+

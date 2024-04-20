@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Hotel.h" // Asigurați-vă că includeți corect header-ul
+#include "Hotel.h"
 
 class Oras {
 private:
@@ -13,8 +13,10 @@ private:
 
 public:
     explicit Oras(std::string nume = "");
+
     [[nodiscard]] const std::string& getNume() const;
     [[nodiscard]] const std::vector<Hotel>& getHoteluri() const;
+
     void adaugaHotel(const Hotel& hotel);
 
     friend std::ostream& operator<<(std::ostream& out, const Oras& oras);

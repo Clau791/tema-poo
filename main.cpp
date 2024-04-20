@@ -4,31 +4,25 @@
 // separarea codului din clase în `.h`
 #include <Hotel.h>
 #include <Oras.h>
-
+#include "CameraVIP.h"
 
 int main() {
 
    //tema 2
 
-    class CameraVIP : public Camera {
 
-    public:
-        CameraVIP(int nr, double pret, bool ocupata )
-                : Camera(nr, "VIP", pret, ocupata)   { // NOLINT(*-narrowing-conversions)
-
-        }
-        //am apelat constructorul din clasa de baza
-
-        void AfiseazaDetalii() override  {
-            Camera::AfiseazaDetalii();
-            std::cout << "   " << std::endl;
-        }
-
-
-     };
-
+    Oras oras1("Constanta");
+    Oras oras2("Bucuresti");
     // Crearea a 3 hoteluri
     Hotel hotel1("Grand Plaza");
+    Hotel hotel2("Sea View");
+    Hotel hotel3("Grand Hotel");
+
+
+    //tema 2
+    CameraVIP cameraVip1(1, 500.0, false);
+    hotel1.adaugaCamera(cameraVip1);
+    cameraVip1.AfiseazaDetalii(); // folosirea up-castingului pentru a afisa detaliile camerei
 
     Camera camera1(101, "Dubla", 300.0);
     Camera camera2(102, "Single", 300.0);
@@ -42,7 +36,6 @@ int main() {
     hotel1.adaugaCamera(camera5);
 
 
-    Hotel hotel2("Sea View");
     Camera camera22(202, "Single", 300.0);
     Camera camera23(203, "Dubla", 300.0, true);
     Camera camera24(204, "Tripla", 300.0, true);
@@ -52,7 +45,7 @@ int main() {
     hotel2.adaugaCamera(camera24);
     hotel2.adaugaCamera(camera25);
 
-    Hotel hotel3("Grand Hotel");
+
     Camera camera30(301, "Dubla", 300.0);
     Camera camera31(302, "Single", 300.0);
     Camera camera32(303, "Dubla", 300.0, true);
@@ -67,21 +60,17 @@ int main() {
     hotel3.adaugaCamera(camera34);
     hotel3.adaugaCamera(camera35);
 
+
     // Crearea unui oraș si adaugarea hotelurilor în oraș
-    Oras oras1("Constanta");
-    Oras oras2("Bucuresti");
     oras1.adaugaHotel(hotel1);
     oras1.adaugaHotel(hotel2);
     oras2.adaugaHotel(hotel3);
 
 
-    //tema 2
-    CameraVIP cameraVip1(1, 500.0, false);
-    hotel1.adaugaCamera(cameraVip1);
-    cameraVip1.AfiseazaDetalii();
+
+    Camera::camereOcupate = 0; // pentru a nu se incrementa si camerele deja initializate cu false
 
     bool continua = true;
-    Camera::camereOcupate = 0; // pentru a nu se incrementa si camerele deja initializate cu false
 
     std::vector<Oras> orase = {oras1, oras2}; //  vectorul cu orașele create
 
@@ -170,7 +159,7 @@ int main() {
 
         Camera::camereOcupate ++; //incrementam camerele ocupate
         Camera::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
-        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata -Camera::reducereGlobala << " RON" << std::endl;
+        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata -Camera::reducere << " RON" << std::endl;
         std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
 
 

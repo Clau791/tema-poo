@@ -9,7 +9,7 @@ private:
     bool esteOcupata;
 
 public:
-[[maybe_unused]] [[nodiscard]] int getPret() const {
+    [[maybe_unused]] [[nodiscard]] int getPret() const {
         return pretPeNoapte; }
 
     [[maybe_unused]] [[nodiscard]] int getNumar() const {
@@ -17,16 +17,21 @@ public:
 
     [[nodiscard]] bool getEsteOcupata() const  {
         return esteOcupata  ; }
-
-    static int reducereGlobala;
+    void SetterOcupata();
+    // tema 2 , adaugam o reducere in cazul rezervarii mai multor camere
+    static int reducere;
     static int camereOcupate;
 
     explicit Camera(int numar = 0, std::string tip = "Standard", int pretPeNoapte = 0, bool esteOcupata = false);
     Camera(const Camera& sursa);
 
+    //tema 2 , functii static si virtual pentru calcularea reducerii si pentru afisarea detaliilor
     static void actualizeazaReducere();
-    void SetterOcupata();
+    // tema 2 , folosim upcasting
     virtual void AfiseazaDetalii();
+
+
+    //destructor virtual
     virtual ~Camera();
 
     friend std::ostream& operator<<(std::ostream& out, const Camera& camera);

@@ -41,3 +41,4 @@ std::istream& operator>>(std::istream& in, Hotel& hotel) {
 }
 
 Hotel::~Hotel() = default;
+
