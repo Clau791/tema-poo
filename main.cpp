@@ -4,10 +4,7 @@
 // separarea codului din clase în `.h`
 #include <Hotel.h>
 #include <Oras.h>
-
-
-
-
+#include "camera.cpp"
 
 int main() {
 
@@ -16,11 +13,12 @@ int main() {
     class CameraVIP : public Camera {
 
     public:
-        CameraVIP(int nr, double pret, bool ocupata)
-                : Camera(nr, "VIP", pret, ocupata)   {
+        CameraVIP(int nr, double pret, bool ocupata )
+                : Camera(nr, "VIP", pret, ocupata)   { // NOLINT(*-narrowing-conversions)
 
         }
         //am apelat constructorul din clasa de baza
+
         void AfiseazaDetalii() override  {
             Camera::AfiseazaDetalii();
             std::cout << "   " << std::endl;
@@ -31,37 +29,17 @@ int main() {
 
 
     // Crearea a 3 hoteluri
-    Hotel hotel1("Grand Plaza");
 
-    Camera camera1(101, "Dubla", 300.0);
-    Camera camera2(102, "Single", 150.0);
-    Camera camera3(103, "Dubla", 350.0, true);
-    Camera camera4(104, "Dubla", 370.0);
-    Camera camera5(105, "Dubla", 130.0, true);
     hotel1.adaugaCamera(camera1);
     hotel1.adaugaCamera(camera2);
     hotel1.adaugaCamera(camera3);
     hotel1.adaugaCamera(camera4);
     hotel1.adaugaCamera(camera5);
 
-
-    Hotel hotel2("Sea View");
-    Camera camera22(202, "Single", 180.0);
-    Camera camera23(203, "Dubla", 250.0, true);
-    Camera camera24(204, "Tripla", 450.0, true);
-    Camera camera25(205, "Tripla", 350.0);
     hotel2.adaugaCamera(camera22);
     hotel2.adaugaCamera(camera23);
     hotel2.adaugaCamera(camera24);
     hotel2.adaugaCamera(camera25);
-
-    Hotel hotel3("Grand Hotel");
-    Camera camera30(301, "Dubla", 320.0);
-    Camera camera31(302, "Single", 150.0);
-    Camera camera32(303, "Dubla", 350.0, true);
-    Camera camera33(304, "Dubla", 370.0, true);
-    Camera camera34(305, "Dubla", 330.0, true);
-    Camera camera35(305, "Tripla", 500.0);
 
     hotel3.adaugaCamera(camera30);
     hotel3.adaugaCamera(camera31);
@@ -70,16 +48,13 @@ int main() {
     hotel3.adaugaCamera(camera34);
     hotel3.adaugaCamera(camera35);
 
-    // Crearea unui oraș si adaugarea hotelurilor în oraș
-    Oras oras1("Constanta");
-    Oras oras2("Bucuresti");
     oras1.adaugaHotel(hotel1);
     oras1.adaugaHotel(hotel2);
     oras2.adaugaHotel(hotel3);
 
 
     //tema 2
-    CameraVIP cameraVip1(1, 500.0, true);
+    CameraVIP cameraVip1(1, 500.0, false);
     hotel1.adaugaCamera(cameraVip1);
     cameraVip1.AfiseazaDetalii();
 
@@ -173,8 +148,10 @@ int main() {
 
         Camera::camereOcupate ++; //incrementam camerele ocupate
         Camera::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
-        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata  << " RON" << std::endl;
+        std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata -Camera::reducereGlobala << " RON" << std::endl;
         std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
+
+
         int continua1;
         std::cin >> continua1;
         if (continua1 == 0) {
