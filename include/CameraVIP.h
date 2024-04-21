@@ -12,7 +12,7 @@ public:
 
     void AfiseazaDetalii() override  {
         Camera::AfiseazaDetalii();
-        std::cout << "   " << std::endl;
+        std::cout << "Aceasta este camera VIP" << std::endl;
     }
 
 

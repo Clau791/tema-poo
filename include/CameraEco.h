@@ -15,7 +15,7 @@ public:
 
     void AfiseazaDetalii() override{
         Camera::AfiseazaDetalii();  // Afișeaza detaliile ale camerei
-        std::cout << "   Aceasta camera este economica." << std::endl;
+        std::cout << "Aceasta camera este economica." << std::endl;
 
     };
 
