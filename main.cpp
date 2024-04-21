@@ -164,8 +164,8 @@ int main() {
                 Camera &cameraSelectata = camere[indexCamera];
 
                 // Folosim down casting pentru verifica daca tipul de camera selectat este VIP sau Eco
-                CameraEco *cameraEco = dynamic_cast<CameraEco *>(&cameraSelectata);
-                CameraVIP *cameraVIP = dynamic_cast<CameraVIP *>(&cameraSelectata);
+                auto *cameraEco = dynamic_cast<CameraEco *>(&cameraSelectata);
+                auto *cameraVIP = dynamic_cast<CameraVIP *>(&cameraSelectata);
 
                 if (cameraSelectata.getEsteOcupata()) {
                     std::cout << "Camera este deja ocupata.\n";
