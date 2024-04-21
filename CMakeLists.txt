@@ -160,8 +160,6 @@ add_executable(
         ${TESTS}
         ${SOURCES}
         include/Oras.h
-        src/CameraVIP.cpp
-        src/CameraEco.cpp
 )
 
 target_link_libraries(

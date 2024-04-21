@@ -1,6 +1,4 @@
 #include <gtest/gtest.h>
-#include <Oras.h>
-#include "Hotel.h"
 #include <Camera.h>
 #include "CameraVIP.h"
 #include "CameraECO.h"

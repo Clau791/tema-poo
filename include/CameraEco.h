@@ -19,8 +19,6 @@ public:
 
     };
 
-
-
 };
 
 #endif //OOP_CAMERAECO_H

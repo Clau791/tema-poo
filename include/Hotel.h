@@ -12,8 +12,6 @@
 
 
 // clasa nu a fost modificata de la tema 1
-
-
 class Hotel {
 private:
     std::string nume;
