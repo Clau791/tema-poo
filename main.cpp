@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include "memory"
 // separarea codului din clase în `.h`
 #include <Hotel.h>
 #include <Oras.h>
@@ -150,7 +150,7 @@ int main() {
             }
 
             int optiuneCamera;
-
+            //Aici am vrut sa folosesc down casting
             while (true) {
                 std::cin >> optiuneCamera;
 
