@@ -1,6 +1,5 @@
 #ifndef OOP_ORAS_H
 #define OOP_ORAS_H
-
 #include <iostream>
 #include <vector>
 #include <string>

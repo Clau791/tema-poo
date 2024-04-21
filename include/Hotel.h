@@ -8,6 +8,7 @@
 #include <string>
 #include "Camera.h"
 #include "CameraVIP.h"
+#include "CameraEco.h"
 #include <memory>
 
 

@@ -1,12 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
 // separarea codului din clase în `.h`
-#include <Hotel.h>
 #include <Oras.h>
-#include "CameraVIP.h"
-#include "CameraEco.h"
 
 int main() {
     //gestionam erori de intrare si alte exceptii folosind try si cathc

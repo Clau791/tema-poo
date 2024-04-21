@@ -1,7 +1,6 @@
 #ifndef OOP_CAMERAECO_H
 #define OOP_CAMERAECO_H
 
-
 // Clasa CameraEco extinde clasa Camera
 class CameraEco : public Camera {
 
