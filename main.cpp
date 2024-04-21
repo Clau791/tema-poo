@@ -10,7 +10,7 @@
 
 int main() {
     //gestionam erori de intrare si alte exceptii folosind try si cathc
-    try {
+
 
         // linile 17 - 85 sunt popularea camerelor, hotelurilor si oraselor
 
@@ -197,8 +197,5 @@ int main() {
 
 
         }
-    }
-    catch (const std::exception &e) {
-        std::cerr << "A aparut o eroare neasteptata: " << e.what() << '\n';
-    }
+
 }
