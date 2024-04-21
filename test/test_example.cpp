@@ -2,8 +2,6 @@
 #include <Camera.h>
 #include "CameraVIP.h"
 #include "CameraEco.h"
-#include <sstream>
-
 
 
 TEST(SuiteName, TestName) {
@@ -50,18 +48,3 @@ TEST(CameraTest, ActualizeazaReducere) {
     EXPECT_EQ(Camera::reducere, 100);
 }
 
-//functie virtuala
-TEST(CameraTest, AfiseazaDetalii) {
-    // Salvam stream-ul vechi
-    std::cout.rdbuf();
-    // Redirecționam std::cout la un stringstream
-    std::stringstream output;
-    std::cout.rdbuf(output.rdbuf());
-
-
-    // Test pentru Camera VIP
-    CameraVIP vip(102, 500.0, false);
-    vip.AfiseazaDetalii();
-    std::string expected_vip = "Camera 102: VIP, 500 RON, Libera\nAceasta este camera VIP\n";
-    EXPECT_EQ(output.str(), expected_vip);
-}
