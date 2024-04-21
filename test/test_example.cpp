@@ -2,7 +2,7 @@
 #include <Camera.h>
 #include "CameraVIP.h"
 #include "CameraECO.h"
-#include <sstream>
+
 
 
 
@@ -51,11 +51,5 @@ TEST(CameraTest, ActualizeazaReducere) {
 }
 
 //functie virtuala
-TEST(CameraTest, AfiseazaDetalii) {
-    // Salvam stream-ul vechi
-    std::cout.rdbuf();
-    // Redirecționam std::cout la un stringstream
-    std::stringstream output;
-    std::cout.rdbuf(output.rdbuf());
 
-}
+
