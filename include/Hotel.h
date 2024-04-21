@@ -8,6 +8,7 @@
 #include <string>
 #include "Camera.h"
 #include "CameraVIP.h"
+#include <memory>
 
 
 // clasa nu a fost modificata de la tema 1
