@@ -87,7 +87,7 @@ int main() {
 
         // camereOcupate este folosit pentru a calcula reducerea
         Camera::camereOcupate = 0; // pentru a nu se incrementa si camerele deja initializate cu false
-        int NumarNopti;
+
         //Modificarile aduse meniului au fost implementarea unei reduceri in cazul in care se rezerva mai multe camere,
         // cu adaugari la liniile 180-184
 
@@ -160,8 +160,6 @@ int main() {
                 }
 
                 int indexCamera = optiuneCamera - 1;
-
-
                 if (camere[indexCamera].getEsteOcupata()) {
                     std::cout << "Camera este deja ocupata.\n";
 
@@ -171,8 +169,6 @@ int main() {
 
                     camere[indexCamera].SetterOcupata();
                     // std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Verifica daca camera a fost ocupata
-                    std::cout << "Scrieti numarul de nopti pe cate vreti sa il stati: ";
-                    std::cin >> NumarNopti;
 
                     std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
                     SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
