@@ -9,7 +9,7 @@ private:
     bool esteOcupata;
 
 public:
-    [[nodiscard]] std::string getTip() const{
+    [[maybe_unused]] [[nodiscard]] std::string getTip() const{
         return  tip;
     }
     [[maybe_unused]] [[nodiscard]] int getPret() const {
@@ -38,6 +38,8 @@ public:
     // tema 2 , folosim upcasting
     virtual void AfiseazaDetalii();
 
+    //Am incercat sa fac aceasta clasa una pur virtuala
+    //dar am intampinat problema la instantierea obiectelor si adaugarea lor in vector ulterior
 
     //destructor virtual
     virtual ~Camera();

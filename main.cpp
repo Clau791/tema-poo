@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "memory"
+
 // separarea codului din clase în `.h`
 #include <Hotel.h>
 #include <Oras.h>
@@ -88,8 +88,6 @@ int main() {
         // camereOcupate este folosit pentru a calcula reducerea
         Camera::camereOcupate = 0; // pentru a nu se incrementa si camerele deja initializate cu false
 
-        //Modificarile aduse meniului au fost implementarea unei reduceri in cazul in care se rezerva mai multe camere,
-        // cu adaugari la liniile 180-184
 
         bool continua = true;
 
@@ -150,7 +148,7 @@ int main() {
             }
 
             int optiuneCamera;
-            //Aici am vrut sa folosesc down casting
+
             while (true) {
                 std::cin >> optiuneCamera;
 
@@ -163,7 +161,7 @@ int main() {
                 if (camere[indexCamera].getEsteOcupata()) {
                     std::cout << "Camera este deja ocupata.\n";
 
-                    // Ofera utilizatorului opțiunea de a alege o altă camera
+                    // Ofera utilizatorului opțiunea de a alege o alta camera
                     std::cout << "Va rugam sa selectati o alta camera.\n";
                 } else {
 
@@ -172,7 +170,7 @@ int main() {
 
                     std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
                     SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
-                    break; // Ieșire din bucla când rezervarea este efectuata cu succes
+                    break; // Ieșire din bucla cand rezervarea este efectuata cu succes
                 }
             }
 

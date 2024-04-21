@@ -19,9 +19,7 @@ public:
 
     };
 
-    double calculeazaCostTotal(int numarNopti, int pret)   {
-        return numarNopti * pret*0.8; //camera este economica si are pret mai mic
-    }
+
 
 };
 
