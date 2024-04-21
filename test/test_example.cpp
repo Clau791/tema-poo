@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include<camera.h>
+#include<Camera.h>
 
 TEST(SuiteName, TestName) {
     EXPECT_EQ(10, 10);
