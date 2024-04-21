@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <Camera.h>
-#include "CameraVip.h"
+#include "CameraVIP.h"
 #include "CameraEco.h"
 #include <sstream>
 
