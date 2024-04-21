@@ -15,6 +15,9 @@ public:
         std::cout << "   " << std::endl;
     }
 
+    double calculeazaCostTotal(int numarNopti, int pret)   {
+        return numarNopti * pret * 1.2; // 20% mai scump
+    }
 
 };
 

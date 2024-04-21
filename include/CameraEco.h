@@ -18,6 +18,11 @@ public:
         std::cout << "   Aceasta camera este economica." << std::endl;
 
     };
+
+    double calculeazaCostTotal(int numarNopti, int pret)   {
+        return numarNopti * pret*0.8; //camera este economica si are pret mai mic
+    }
+
 };
 
 #endif //OOP_CAMERAECO_H

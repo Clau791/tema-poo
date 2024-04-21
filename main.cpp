@@ -150,50 +150,56 @@ int main() {
             }
 
             int optiuneCamera;
+            int NumarNopti;
 
             while (true) {
                 std::cin >> optiuneCamera;
 
                 if (optiuneCamera < 1 || optiuneCamera > static_cast<int>(camere.size())) {
                     std::cout << "Optiune invalida. Incercati din nou.\n";
-                    continue; // Reincepe bucla dacă selecția este invalida
+                    continue;
                 }
 
                 int indexCamera = optiuneCamera - 1;
-                if (camere[indexCamera].getEsteOcupata()) {
-                    std::cout << "Camera este deja ocupata.\n";
+                Camera &cameraSelectata = camere[indexCamera];
 
-                    // Ofera utilizatorului opțiunea de a alege o altă camera
+                // Folosim down casting pentru verifica daca tipul de camera selectat este VIP sau Eco
+                CameraEco *cameraEco = dynamic_cast<CameraEco *>(&cameraSelectata);
+                CameraVIP *cameraVIP = dynamic_cast<CameraVIP *>(&cameraSelectata);
+
+                if (cameraSelectata.getEsteOcupata()) {
+                    std::cout << "Camera este deja ocupata.\n";
                     std::cout << "Va rugam sa selectati o alta camera.\n";
                 } else {
+                    cameraSelectata.SetterOcupata();
+                    SumaDePlata += cameraSelectata.getPret();
 
-                    camere[indexCamera].SetterOcupata();
-                    // std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Verifica daca camera a fost ocupata
+                    if (cameraEco) {
+                        std::cout << "Ati selectat o camera Eco. Aceasta ofera un mediu mai sustenabil.\n";
+                    } else if (cameraVIP) {
+                        std::cout << "Ati selectat o camera VIP. Bucurati-va de facilitatile extra!\n";
+                    }
 
-                    std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
-                    SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
-                    break; // Ieșire din bucla când rezervarea este efectuata cu succes
+                    std::cout << "Scrieti numarul de nopti pe cate vreti sa il stati: ";
+                    std::cin >> NumarNopti;
+                    std::cout << "Camera " << cameraSelectata.getNumar() << " a fost rezervata cu succes.\n";
+                    break;
                 }
             }
 
-
-            Camera::camereOcupate++; //incrementam camerele ocupate
-            Camera::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
+            Camera::camereOcupate++;
+            Camera::actualizeazaReducere();
             std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata - Camera::reducere << " RON"
                       << std::endl;
             std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
-
-
             int continua1;
             std::cin >> continua1;
             if (continua1 == 0) {
                 continua = false;
             }
 
-
         }
-
-    }
+        }
     catch (const std::exception &e) {
         std::cerr << "A aparut o eroare neasteptata: " << e.what() << '\n';
     }

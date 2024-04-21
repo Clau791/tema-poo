@@ -10,10 +10,7 @@ Camera::Camera(int numar, std::string tip, int pretPeNoapte, bool esteOcupata)
 }
 
 
-Camera::Camera(const Camera& sursa)
-        : numar(sursa.numar), tip(sursa.tip), pretPeNoapte(sursa.pretPeNoapte), esteOcupata(sursa.esteOcupata) {
-
-}
+[[maybe_unused]] Camera::Camera(const Camera& sursa)= default;
 
 
 void Camera::actualizeazaReducere() {
@@ -35,6 +32,7 @@ void Camera::AfiseazaDetalii() {
               << (esteOcupata ? "Ocupata" : "Libera") << std::endl;
 }
 
+
 std::ostream& operator<<(std::ostream& out, const Camera& camera) {
     out << "Nr: " << camera.numar << ", Tip: " << camera.tip
         << ", Pret: " << camera.pretPeNoapte << ", "
@@ -47,5 +45,5 @@ std::istream& operator>>(std::istream& in, Camera& camera) {
     return in;
 }
 
-Camera::~Camera() {}
+Camera::~Camera() = default;
 

@@ -9,6 +9,9 @@ private:
     bool esteOcupata;
 
 public:
+    [[nodiscard]] std::string getTip() const{
+        return  tip;
+    }
     [[maybe_unused]] [[nodiscard]] int getPret() const {
         return pretPeNoapte; }
 
@@ -27,7 +30,8 @@ public:
     static int camereOcupate;
 
     explicit Camera(int numar = 0, std::string tip = "Standard", int pretPeNoapte = 0, bool esteOcupata = false);
-    Camera(const Camera& sursa);
+
+    [[maybe_unused]] Camera(const Camera& sursa);
 
     //tema 2 , functii static si virtual pentru calcularea reducerii si pentru afisarea detaliilor
     static void actualizeazaReducere();
