@@ -150,7 +150,7 @@ int main() {
             }
 
             int optiuneCamera;
-            int NumarNopti;
+
             while (true) {
                 std::cin >> optiuneCamera;
 
@@ -170,15 +170,10 @@ int main() {
                     camere[indexCamera].SetterOcupata();
                     // std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Verifica daca camera a fost ocupata
 
-
+                    std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
                     SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
-
+                    break; // Ieșire din bucla când rezervarea este efectuata cu succes
                 }
-
-                std::cout << "Scrieti numarul de nopti pe cate vreti sa il stati; \n";
-                std::cin >> NumarNopti;
-                std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
-                break;
             }
 
 
@@ -197,6 +192,9 @@ int main() {
 
 
         }
-    }catch (const std::exception &e) {
-        std::cerr << "A aparut o eroare neasteptata: " << e.what() << '\n';}
+
+    }
+    catch (const std::exception &e) {
+        std::cerr << "A aparut o eroare neasteptata: " << e.what() << '\n';
+    }
 }
