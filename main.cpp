@@ -172,13 +172,13 @@ int main() {
 
 
                     SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
-                    std::cout<<"Scrieti numarul de nopti pe cate vreti sa il stati; \n";
-                    std::cin>>NumarNopti;
-                    std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
-                    break;
+
                 }
 
-
+                std::cout << "Scrieti numarul de nopti pe cate vreti sa il stati; \n";
+                std::cin >> NumarNopti;
+                std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
+                break;
             }
 
 
@@ -197,7 +197,6 @@ int main() {
 
 
         }
-
     }
     catch (const std::exception &e) {
         std::cerr << "A aparut o eroare neasteptata: " << e.what() << '\n';
