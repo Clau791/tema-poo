@@ -5,9 +5,9 @@
 #include <Oras.h>
 
 int main() {
-    //gestionam erori de intrare si alte exceptii folosind try si cathc
-    try {
 
+
+    try {
         // linile 17 - 85 sunt popularea camerelor, hotelurilor si oraselor
 
         Oras oras1("Constanta");
