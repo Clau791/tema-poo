@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 template <typename T>
 class Camera {
 private:
@@ -31,15 +32,11 @@ public:
     explicit Camera(int numar = 0, T tip = "Standard", int pretPeNoapte = 0, bool esteOcupata = false);
 
 
-    //tema 2 , functii static si virtual pentru calcularea reducerii si pentru afisarea detaliilor
+    // functii static si virtual pentru calcularea reducerii si pentru afisarea detaliilor
     [[maybe_unused]] static void actualizeazaReducere();
-    // tema 2 , folosim upcasting
+
     [[maybe_unused]] virtual void AfiseazaDetalii();
 
-    //Am incercat sa fac aceasta clasa una pur virtuala
-    //dar am intampinat problema la instantierea obiectelor si adaugarea lor in vector ulterior
-
-    //destructor virtual
     virtual ~Camera();
 
     template <typename U>
@@ -99,7 +96,5 @@ std::istream& operator>>(std::istream& in, Camera<T>& camera) {
 template<typename T>
 Camera<T>::~Camera() = default;
 
-// Specificați explicit tipurile folosite pentru template-uri la sfârșitul fișierului
-template class Camera<std::string>;
 
-extern int SumaDePlata;
+

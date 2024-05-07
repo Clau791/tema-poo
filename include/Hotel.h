@@ -7,9 +7,7 @@
 #include <vector>
 #include <string>
 #include "Camera.h"
-#include "CameraVIP.h"
-#include "CameraEco.h"
-#include <memory>
+
 template <typename T>
 
 // clasa nu a fost modificata de la tema 1

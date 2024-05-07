@@ -19,7 +19,7 @@ int main() {
 
 
 
-        Camera<std::string > camera1(10, "Dubla", 300.0);
+        Camera<std::string> camera1(10, "Dubla", 300.0);
         Camera<std::string> camera2(11, "Single", 300.0);
         Camera<std::string> camera3(12, "Dubla", 300.0, true);
         Camera<std::string> camera4(12, "Dubla", 300.0);
