@@ -7,17 +7,12 @@
 int main() {
 
 
-    try {
-        // linile 17 - 85 sunt popularea camerelor, hotelurilor si oraselor
-
         Oras<Hotel<Camera<std::string>>> oras1("Constanta");
         Oras<Hotel<Camera<std::string>>> oras2("Bucuresti");
 
         Hotel<Camera<std::string>> hotel1("Grand Plaza");
         Hotel<Camera<std::string>> hotel2("Sea View");
         Hotel<Camera<std::string>> hotel3("Grand Hotel");
-
-
 
         Camera<std::string> camera1(10, "Dubla", 300.0);
         Camera<std::string> camera2(11, "Single", 300.0);
@@ -58,7 +53,6 @@ int main() {
         oras1.adaugaHotel(hotel2);
         oras2.adaugaHotel(hotel3);
 
-
         // camereOcupate este folosit pentru a calcula reducerea
         Camera<std::string>::camereOcupate = 0; // pentru a nu se incrementa si camerele deja initializate cu false
 
@@ -68,7 +62,6 @@ int main() {
         std::vector<Oras<Hotel<Camera<std::string>>>> orase = {oras1, oras2}; //  vectorul cu orașele create
 
         while (continua) {
-
 
             std::cout << "Selectati un oras:\n";
             //pentru a afisa toate orasele din vector
@@ -83,8 +76,7 @@ int main() {
                 std::cout << "Optiune invalida. Incercati din nou.\n";
                 continue;
             }
-            //am folosit static_cast<int> pentru a ne asigura ca tipul de
-            // date returnat este int(nu unsigned cum s-ar fi intamplat fara el)
+            //am folosit static_cast<int> pentru a ne asigura ca tipul de date returnat este int
 
             Oras<Hotel<Camera<std::string>>>& orasAles = orase[optiuneOras - 1];
 
@@ -97,7 +89,6 @@ int main() {
             }
             int optiuneHotel;
 
-
             while (true) {
 
                 std::cin >> optiuneHotel;
@@ -105,11 +96,9 @@ int main() {
                 if (optiuneHotel < 1 || optiuneHotel > static_cast<int>(hoteluri.size())) {
                     std::cout << "Optiune invalida. Incercati din nou.\n";
                     continue;
-
                 }
                 break;
             }
-
 
             auto &hotelAles = const_cast<Hotel<Camera<std::string>>&>(hoteluri[optiuneHotel - 1]);
             auto &camere = const_cast<std::vector<Camera<std::string>>&>(hotelAles.getCamere());
@@ -132,27 +121,22 @@ int main() {
                 int indexCamera = optiuneCamera - 1;
                 if (camere[indexCamera].getEsteOcupata()) {
                     std::cout << "Camera este deja ocupata.\n";
-
-                    // Ofera utilizatorului opțiunea de a alege o alta camera
                     std::cout << "Va rugam sa selectati o alta camera.\n";
                 } else {
 
                     camere[indexCamera].SetterOcupata();
-                    // std::cout << camere[indexCamera].getEsteOcupata()<<std::endl;// Verifica daca camera a fost ocupata
-
                     std::cout << "Camera " << camere[indexCamera].getNumar() << " a fost rezervata cu succes.\n";
                     SumaDePlata = SumaDePlata + camere[indexCamera].getPret();
                     break; // Ieșire din bucla cand rezervarea este efectuata cu succes
+
                 }
             }
 
-
-            //Camera::camereOcupate++; //incrementam camerele ocupate
-            //Camera::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
+            Camera<std::string>::camereOcupate++; //incrementam camerele ocupate
+            Camera<std::string>::actualizeazaReducere(); //stabilim reducerea acordata pe baza numarului de camere rezervate
             std::cout << "Suma totala pe care o aveti de platit este: " << SumaDePlata - Camera<std::string>::reducere << " RON"
                       << std::endl;
             std::cout << "Doriti sa continuati? (0 = nu, orice alt numar = da): ";
-
 
             int continua1;
             std::cin >> continua1;
@@ -160,11 +144,7 @@ int main() {
                 continua = false;
             }
 
-
         }
 
     }
-    catch (const std::exception &e) {
-        std::cerr << "A aparut o eroare neasteptata: " << e.what() << '\n';
-    }
-}
+

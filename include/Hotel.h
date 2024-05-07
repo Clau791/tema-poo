@@ -1,55 +1,52 @@
-//
-// Created by klau2 on 10.04.2024.
-//
 #ifndef OOP_HOTEL_H
 #define OOP_HOTEL_H
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include "Camera.h"
 
 template <typename T>
-
-// clasa nu a fost modificata de la tema 1
 class Hotel {
 private:
     std::string nume;
 
-
 public:
-    std::vector<T> camere;
-    explicit Hotel(std::string nume = "");
-    [[nodiscard]] const std::string& getNume() const;
-    [[nodiscard]] const std::vector<Camera<std::string>>& getCamere() const;
+    std::vector<T> camere; // Vector care stocheaza camere de tip T
 
-    template<typename U>
-    friend std::ostream& operator<<(std::ostream& out, const Hotel<U>& hotel);
-    template<typename U>
-    friend std::istream& operator>>(std::istream& in, Hotel<U>& hotel);
+    // Constructor care inițializeaza numele hotelului
+    explicit Hotel(std::string nume = "") : nume(std::move(nume)) {}
+
+    // Returneaza numele hotelului
+    [[nodiscard]] const std::string& getNume() const {
+        return nume;
+    }
+
+    // Returneaza vectorul de camere, corectat să foloseasca T
+    [[nodiscard]] const std::vector<T>& getCamere() const {
+        return camere;
+    }
+
+    // Adauga o camera la lista de camere a hotelului
+    void adaugaCamera(const T& camera) {
+        camere.push_back(camera);
+    }
+
+    // Destructor virtual
     virtual ~Hotel();
 
-    void adaugaCamera(const T& camera);
+    // Supraincarcare pentru operatorii << și >>
+    template<typename U>
+    friend std::ostream& operator<<(std::ostream& out, const Hotel<U>& hotel);
+
+    template<typename U>
+    friend std::istream& operator>>(std::istream& in, Hotel<U>& hotel);
 };
-#include "Hotel.h"
 
 template<typename T>
-Hotel<T>::Hotel(std::string nume) : nume(std::move(nume)) {}
+Hotel<T>::~Hotel() = default;
 
-template<typename T>
-const std::string& Hotel<T>::getNume() const {
-    return nume;
-}
-
-template<typename T>
-const std::vector<Camera<std::string>>& Hotel<T>::getCamere() const {
-    return camere;
-}
-
-template <typename T>
-void Hotel<T>::adaugaCamera(const T& camera) {
-    camere.push_back(camera);
-}
-
+// Definirea operatorului <<
 template<typename T>
 std::ostream& operator<<(std::ostream& out, const Hotel<T>& hotel) {
     out << "Hotel: " << hotel.nume << "\n";
@@ -59,6 +56,7 @@ std::ostream& operator<<(std::ostream& out, const Hotel<T>& hotel) {
     return out;
 }
 
+// Definirea operatorului >>
 template<typename T>
 std::istream& operator>>(std::istream& in, Hotel<T>& hotel) {
     std::cout << "Nume Hotel: ";
@@ -75,7 +73,4 @@ std::istream& operator>>(std::istream& in, Hotel<T>& hotel) {
     return in;
 }
 
-template<typename T>
-Hotel<T>::~Hotel() = default;
-
-#endif //OOP_HOTEL_H
+#endif // OOP_HOTEL_H

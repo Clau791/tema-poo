@@ -13,24 +13,26 @@ public:
     [[maybe_unused]] [[nodiscard]] T getTip() const{
         return  tip;
     }
+
     [[maybe_unused]] [[nodiscard]] int getPret() const {
-        return pretPeNoapte; }
+        return pretPeNoapte;
+    }
 
     [[maybe_unused]] [[nodiscard]] int getNumar() const {
-        return numar; }
+        return numar;
+    }
 
     [[nodiscard]] bool getEsteOcupata() const  {
-        return esteOcupata  ; }
+        return esteOcupata  ;
+    }
 
     void SetterOcupata();
 
-    // tema 2 , adaugam o reducere in cazul rezervarii mai multor camere
-    // variabile de tip static
-    static int reducere;
+    // adaugam o reducere in cazul rezervarii mai multor camere
+    [[maybe_unused]] static int reducere;
     [[maybe_unused]] static int camereOcupate;
 
     explicit Camera(int numar = 0, T tip = "Standard", int pretPeNoapte = 0, bool esteOcupata = false);
-
 
     // functii static si virtual pentru calcularea reducerii si pentru afisarea detaliilor
     [[maybe_unused]] static void actualizeazaReducere();
@@ -39,6 +41,7 @@ public:
 
     virtual ~Camera();
 
+    // Supraincarcarea operatorilor << si >> pentru a facilita afisarea si citirea detaliilor camerei
     template <typename U>
     friend std::ostream& operator<<(std::ostream& out, const Camera<U>& camera);
 
@@ -49,9 +52,10 @@ public:
 
 template<typename T>
 int Camera<T>::reducere = 0;
+
 template<typename T>
 [[maybe_unused]] int Camera<T>::camereOcupate = 0;
-int SumaDePlata = 0;
+[[maybe_unused]] int SumaDePlata = 0;
 
 template<typename T>
 Camera<T>::Camera(int numar, T tip, int pretPeNoapte, bool esteOcupata)
